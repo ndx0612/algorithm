@@ -1,3 +1,4 @@
-let nums = ['a', 'c', 'b'];
-nums = nums.sort();
-console.log(nums);
+let num = 123;
+str = num + '';
+str = parseInt(str);
+console.log(typeof (str));

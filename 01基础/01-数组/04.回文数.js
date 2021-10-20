@@ -6,9 +6,11 @@ var isPalindrome = function (s) {
   for (let i = 0; i < str.length; i++) {
     strArr.push(str[i])
   }
-  console.log(strArr);
+  if (strArr == strArr.reverse()) {
+    return true;
+  }
 };
 
-let s = 121;
+let s = 1234;
 
-isPalindrome(s);
+console.log(isPalindrome(s));
