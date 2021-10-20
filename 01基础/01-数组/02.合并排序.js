@@ -1,11 +1,13 @@
 // https://leetcode-cn.com/problems/merge-sorted-array/
 
 var merge = function (nums1, m, nums2, n) {
+  // 删除后面的0
   nums1.splice(m);
   nums2.splice(n);
+  // 拼接数组
   nums1 = nums1.concat(...nums2)
+  // 数组排序
   nums1 = nums1.sort();
-  // let nums3 = [...nums1, ...nums2];
   return nums1;
 };
 

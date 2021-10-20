@@ -6,7 +6,7 @@ var removeDuplicates = function (nums) {
       nums.splice(i, 1);
     }
   }
-  return nums.length;
+  return nums;
 };
 
 let nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
