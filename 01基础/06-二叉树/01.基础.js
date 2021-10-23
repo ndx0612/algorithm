@@ -1,4 +1,6 @@
-// 二叉树3种遍历
+// 1、写一个节点
+// 2、完成完整的二叉树
+// 3、遍历这可二叉树(3种方法)
 
 function Node(value) {
   this.value = value;
@@ -6,58 +8,52 @@ function Node(value) {
   this.right = null;
 }
 
-var a = new Node("a");
-var b = new Node("b");
-var c = new Node("c");
-var d = new Node("d");
-var e = new Node("e");
-var f = new Node("f");
-var g = new Node('g');
+let a = new Node("a");
+let b = new Node("b");
+let c = new Node("c");
+let d = new Node("d");
+let e = new Node("e");
+let f = new Node("f");
+let g = new Node("g");
 
-a.left = b;
-a.right = c;
+a.left = c;
+a.right = b;
+
+c.left = f;
+c.right = g;
 
 b.left = d;
 b.right = e;
 
-c.left = f;
-
-d.left = g;
-
-// 前序遍历
-function f1(root) {
-  if ((root == null)) {
+// 前序遍历(中、左、右)
+function pre(root) {
+  if (root == null) {
     return;
   }
   console.log(root.value);
-  f1(root.left);
-  f1(root.right);
+  pre(root.left);
+  pre(root.right);
 }
-// f1(a);
+// pre(a);
 
-// 中序遍历
-function f2(root) {
-  if ((root == null)) {
+// 中序遍历(左、中、右)
+function mediumOrder(root) {
+  if (root == null) {
     return;
   }
-  f1(root.left);
+  mediumOrder(root.left);
   console.log(root.value);
-  f1(root.right);
+  mediumOrder(root.right);
 }
-f2(a);
+// mediumOrder(a);
 
-
-// 后序遍历
-function f3(root) {
-  if (root == null) return;
-  f3(root.left);
-  f3(root.right);
+// 后序遍历(左、右、中)
+function postorderTraversal(root) {
+  if (root == null) {
+    return;
+  }
+  postorderTraversal(root.left);
+  postorderTraversal(root.right);
   console.log(root.value);
 }
-// f3(a);
-
-
-
-
-
-
+postorderTraversal(a);

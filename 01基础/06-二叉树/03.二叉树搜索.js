@@ -1,7 +1,7 @@
 /*
-      深度优先搜索
-      广度优先搜索
-      */
+深度优先搜索
+广度优先搜索
+*/
 
 function Node(value) {
   this.value = value;
