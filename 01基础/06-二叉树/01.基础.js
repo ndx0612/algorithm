@@ -27,11 +27,15 @@ b.right = e;
 
 // 前序遍历(中、左、右)
 function pre(root) {
+  // 判断是否为空,为空跳出
   if (root == null) {
     return;
   }
+  // 打印中间节点
   console.log(root.value);
+  // 递归遍历左节点
   pre(root.left);
+  // 递归遍历右节点
   pre(root.right);
 }
 // pre(a);
