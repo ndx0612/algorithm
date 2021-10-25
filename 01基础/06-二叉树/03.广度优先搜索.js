@@ -41,4 +41,4 @@ function wideSearch(list, value) {
   return false;
 }
 
-console.log(wideSearch([a], "d"));
+console.log(wideSearch([a], "e"));
