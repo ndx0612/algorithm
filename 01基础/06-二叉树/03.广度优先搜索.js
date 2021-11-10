@@ -21,24 +21,18 @@ c.right = g;
 b.left = d;
 b.right = e;
 
-function wideSearch(list, value) {
-  // 判断为空直接返回
-  if (list == null || list.length == 0) {
-    return false;
-  }
-  // 当前层数所有子节点存储到这个列表里面
-  let childList = [];
-  for (let i = 0; i < list.length; i++) {
-    // 如果找到目标值，返回true
-    if (list != null && list[i].value == value) {
+function breadthSort(rootList, target) {
+  if (rootList == null || rootList.length == 0) return false;
+  var childList = []; //存放下一层的所有子节点
+  for (var i = 0; i < rootList.length; i++) {//依次遍历所有节点
+    if (rootList[i].value == target) {
       return true;
     } else {
-      // 没有找到,添加左右子树
-      childList.push(list[i].left);
-      childList.push(list[i].right);
+      childList.push(rootList[i].left);//把节点的左子节点放入
+      childList.push(rootList[i].right);//把节点的右子节点放入
     }
   }
-  return false;
-}
 
-console.log(wideSearch([a], "e"));
+  return breadthSort(childList, target);//在下一层节点中继续搜索
+}
+console.log(breadthSort([a], 'd'));

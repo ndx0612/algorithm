@@ -1,7 +1,8 @@
 // 深度优先搜索
-// 1、新建一个节点
-// 2、完成二叉树
-// 3、深度优先搜索
+
+// 1、写一颗二叉树
+// 2、递归左右节点
+// 3、左右节点都为false、返回false
 
 function Node(value) {
   this.value = value;
@@ -27,18 +28,20 @@ b.left = d;
 b.right = e;
 
 function deepSearch(root, value) {
-  // 为空则是false
   if (root == null) {
     return false;
   }
-  // 如果是根节点,直接返回true
   if (root.value == value) {
     return true;
   }
-  let left = deepSearch(root.left, value);
-  let right = deepSearch(root.right, value);
+  var left = deepSearch(root.left, value);
+  var right = deepSearch(root.right, value);
   return left || right;
 }
 
-console.log(deepSearch(a, "n"));
+function dfs(root) {
+  console.log(value);
+}
 
+
+console.log(deepSearch(a, "l"));
