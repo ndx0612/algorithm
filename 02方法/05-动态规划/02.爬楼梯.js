@@ -1,35 +1,29 @@
 // https://leetcode-cn.com/problems/climbing-stairs/
-// 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
-// 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
+// 给你一个数n个台阶，有多少种可以爬楼
+// 求n-1个台阶加上n-2个台阶有多少种方法
+// 1层1中 2层2种
 
-// 方法一:递归,正确但是超时
-// var climbStairs = function (n) {
-//   if (n == 1) {
-//     return 1;
-//   } else if (n == 2) {
-//     return 2;
-//   } else {
-//     return climbStairs(n - 1) + climbStairs(n - 2);
-//   }
-// };
-var climbStairs = function (n) {
-  // d(n) = d(n-1) + d(n-2)
-  // d1 = 1 ,d2 = 2
-  // 列举
-  // d3 = d2 + d1 = 2+1 = 3
-  // d4 = d3 + d2 = 3+2 = 5 (d3已经求出)
-  // d5 = …… (d4已经求出)
-  // ……
-  if (n == 2) {
+// 解法一：递归
+var climbStairs1 = function (n) {
+  if (n == 1) {
+    return 1;
+  } else if (n == 2) {
     return 2;
   }
-  let dp = [0, 1, 2]
-  for (let i = 3; i <= n; i++) {
-    dp[i] = dp[i - 1] + dp[i - 2];
-  }
-  return dp[n];
+  return climbStairs1(n - 1) + climbStairs1(n - 2);
 };
 
+// 解法二：动态规划
+var climbStairs2 = function (n) {
+  let n1 = 1, n2 = 2;
+  let res = 0;
+  for (let i = 0; i < n - 2; i++) {
+    res = n1 + n2;
+    n1 = n2;
+    n2 = res;
+  }
+  return res;
+};
 
-
-console.log(climbStairs(4));
+console.log(climbStairs1(10));
+console.log(climbStairs2(10));

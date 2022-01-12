@@ -1,4 +1,5 @@
 // https://leetcode-cn.com/problems/maximum-subarray/
+// 关键 n n-1 n-2的关系
 var lengthOfLongestSubstring = function (s) {
   let start = 0;
   let res = 0;

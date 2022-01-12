@@ -23,22 +23,20 @@
 //   return max;
 // };
 
-const maxProfit = prices => {
-  const len = prices.length;
-  // 创建dp数组
-  const dp = new Array(len).fill([0, 0]);
-  // dp数组初始化
-  dp[0] = [-prices[0], 0];
-  for (let i = 1; i < len; i++) {
-      // 更新dp[i]
-      dp[i] = [
-          Math.max(dp[i - 1][0], -prices[i]),
-          Math.max(dp[i - 1][1], prices[i] + dp[i - 1][0]),
-      ];
+// 前2天利润最大值：第2天 - 第1天
+// 前3天利润最大值：第3天减去最小值，前2天利润最大值
+// 前4天利润最大值：第4天减去最小值，前3天利润最大值
+const nums = [7, 6, 4, 3, 1];
+var maxProfit = function (prices) {
+  if (prices.length == 1) {
+    return prices[0];
   }
-  return dp[len - 1][1];
+  let min = Math.min(prices[0], prices[1]);
+  let res = Math.max(prices[1] - prices[0], 0);
+  for (let i = 2; i < prices.length; i++) {
+    res = Math.max(prices[i] - min, res)
+    min = Math.min(min, prices[i])
+  }
+  return res;
 };
-
-let array = [7, 6, 4, 3, 1];
-
-console.log(maxProfit(array));
+console.log(maxProfit(nums));
